@@ -386,7 +386,7 @@ def node_vault_ip(port, appip, file_dir):
     # Open socket to the node
     sock = open_connection(port, appip)
     if sock is None:
-        print('Could not create socket')
+        print('Could not connect to Node')
         return
 
     while True:
