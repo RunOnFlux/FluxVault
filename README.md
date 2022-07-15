@@ -41,11 +41,10 @@ One big area of improvement is in step 2, it would be valuable if the Applicatio
 In the Proof of Concept form you can open two terminal windows, one as the Node and the other as the Vault
 
 In the Node enter the command:
-
+```
 mkdir /tmp/node
-
 ./vault.py Node --port 39898 --vault localhost --dir /tmp/node quotes.txt readme.txt
-
+```
 Where 39898 is TCP port that will be used and localhost is the Domain name (or IP) that the Vault resides and the files will be stored in /tmp/node
 
 This will come up as a server and always be availble to the Vault. If a connection comes in from a different address the connection will be rejected.
@@ -53,9 +52,9 @@ This will come up as a server and always be availble to the Vault. If a connecti
 This server will continue to run getting updates from the vault whenever it connects
 
 In a different shell start the Vault push with the command: (typically run from cron)
-
+```
 ./vault.py Vault --port 39898 --ip 127.0.0.1 --dir files
-
+```
 Where 39898 is the TCP port used and 127.0.0.1 is the IP address of the Flux Node where the App is running and the files will be read from ./files
 
 This will connect, negociate and the node will request the files it wants (quotes.txt and readme.txt) which will be sent if the files are missing or have changed abd placed in /temp/node
@@ -79,9 +78,9 @@ It uses the following python libraries
 - import requests
 
 Crypto is obtained from the pycryptodome library, installed with 
-
-pip install pycryptodome
-
+```
+sudo apt install python3-pycryptodome
+```
 The rest are standard python libraries
 
 # TODO
