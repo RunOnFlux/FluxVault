@@ -139,7 +139,7 @@ different, possibly adding the calls to an existing application.
 
 ## Result Output - Node
 
-tom@node:~/Git/FluxVault$ python3 ./vault_node.py  
+tom@node:/Git/FluxVault$ python3 ./vault_node.py  
 Running in Demo Mode files will be placed in  /tmp/node/  
 /tmp/node/  exists  
 node_server  localhost  
@@ -151,11 +151,11 @@ Closed: ('127.0.0.1', 49096) on Thread-1 (process_request_thread)
 
 ## Result Output - Agent
 
-tom@node:~/Git/FluxVault$ python3 ./vault_agent.py --ip 127.0.0.1  
+tom@node:/Git/FluxVault$ python3 ./vault_agent.py --ip 127.0.0.1  
 Oct-15-2022 07:50:46 File quotes.txt sent!  
 Oct-15-2022 07:50:46 File readme.txt sent!  
 127.0.0.1 Completed  
-tom@node:~/Git/FluxVault$   
+tom@node:/Git/FluxVault$   
 
 # Demo - Local Docker
 
@@ -173,7 +173,7 @@ Once the docker is running you can the run docker_demo.sh providing your local I
 
 ## Result Output - Node
 
-tom@node:~/Git/FluxVault$ docker run --name vault_demo --memory=1g --cpus=1.0 -p 39289:39289 -e VAULT_PORT=39289 -e VAULT_NAME=192.168.0.123 w2vy/vault_demo  
+tom@node:/Git/FluxVault$ docker run --name vault_demo --memory=1g --cpus=1.0 -p 39289:39289 -e VAULT_PORT=39289 -e VAULT_NAME=192.168.0.123 w2vy/vault_demo  
 Version 0.5 10/12/2022 p1test Vault 192.168.0.123 Port 39289  
 2022/10/15 12:07:09 [notice] 7#7: using the "epoll" event method  
 2022/10/15 12:07:09 [notice] 7#7: nginx/1.23.1  
@@ -208,11 +208,11 @@ Closed: ('192.168.0.123', 39736) on Thread-1 (process_request_thread)
 
 ## Result Output - Agent
 
-tom@node:~/Git/FluxVault$ ./docker_demo.sh 192.168.0.123  
+tom@node:/Git/FluxVault$ ./docker_demo.sh 192.168.0.123  
 File quotes.txt Matched!  
 File readme.txt Matched!  
 192.168.0.123 Completed  
-tom@node:~/Git/FluxVault$   
+tom@node:/Git/FluxVault$   
 
 
 # Demo - Flux Node
