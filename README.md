@@ -251,25 +251,24 @@ To deploy your own demo if the Vault you can visit https://jetpack2.app.runonflu
 12) Next Step you can review all the settings and deploy and pay.
 13) The dApp takes an hour to deploy into the network
 14) Once this dApp is running it will show a default web page that looks like this:
-
-Welcome to nginx!
-If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
-
-For online documentation and support please refer to nginx.org.
-Commercial support is available at nginx.com.
-
-Thank you for using nginx.
+ 
+Welcome to nginx!  
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.  
+  
+For online documentation and support please refer to nginx.org.  
+Commercial support is available at nginx.com.  
+  
+Thank you for using nginx.  
 
 15) You can modify app_demo.sh to include the environment variables from step 5, the 'export' command is needed as shown
 16) You can then run the script to contact each node and load a different web page
 17) Reload the web page and you will see a page like this:
 
-Flux Node Rank
-Node IP 
- Go
-
-Queue Position	
-Time to Front
+Flux Node Rank  
+Node IP   
+  
+Queue Position	  
+Time to Front  
 
 # Customization
 
