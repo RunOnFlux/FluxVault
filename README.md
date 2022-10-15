@@ -51,14 +51,14 @@ The code was written to Python 3
 
 It uses the following python libraries
 
-- from Crypto.PublicKey import RSA
-- from Crypto.Random import get_random_bytes
-- from Crypto.Cipher import AES, PKCS1_OAEP
-- import binascii
-- import json
-- import sys
-- import os
-- import time
+from Crypto.PublicKey import RSA  
+from Crypto.Random import get_random_bytes  
+from Crypto.Cipher import AES, PKCS1_OAEP  
+import binascii  
+import json  
+import sys  
+import os  
+import time  
 
 Crypto is obtained from the pycryptodome library, installed with 
 
@@ -100,13 +100,14 @@ You will need to include the code in your docker image
 In application I used alpine:3.15 and the commands to add python3 to docker are
 
 # Python
-ENV PYTHONUNBUFFERED=1
-RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
-RUN python3 -m ensurepip
-RUN pip3 install --no-cache --upgrade pip setuptools
-RUN apk add gcc g++ make libffi-dev openssl-dev git
-RUN pip3 install pycryptodome
-RUN pip3 install requests
+
+ENV PYTHONUNBUFFERED=1  
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python  
+RUN python3 -m ensurepip  
+RUN pip3 install --no-cache --upgrade pip setuptools  
+RUN apk add gcc g++ make libffi-dev openssl-dev git  
+RUN pip3 install pycryptodome  
+RUN pip3 install requests  
 
 
 TODO
@@ -138,23 +139,23 @@ different, possibly adding the calls to an existing application.
 
 ## Result Output - Node
 
-tom@node:~/Git/FluxVault$ python3 ./vault_node.py
-Running in Demo Mode files will be placed in  /tmp/node/
-/tmp/node/  exists
-node_server  localhost
-The NodeKeyClient server is running on port 39898
-Connected: ('127.0.0.1', 49096) on Thread-1 (process_request_thread)
-quotes.txt  received!
-readme.txt  received!
-Closed: ('127.0.0.1', 49096) on Thread-1 (process_request_thread)
+tom@node:~/Git/FluxVault$ python3 ./vault_node.py  
+Running in Demo Mode files will be placed in  /tmp/node/  
+/tmp/node/  exists  
+node_server  localhost  
+The NodeKeyClient server is running on port 39898  
+Connected: ('127.0.0.1', 49096) on Thread-1 (process_request_thread)  
+quotes.txt  received!  
+readme.txt  received!  
+Closed: ('127.0.0.1', 49096) on Thread-1 (process_request_thread)  
 
 ## Result Output - Agent
 
-tom@node:~/Git/FluxVault$ python3 ./vault_agent.py --ip 127.0.0.1
-Oct-15-2022 07:50:46 File quotes.txt sent!
-Oct-15-2022 07:50:46 File readme.txt sent!
-127.0.0.1 Completed
-tom@node:~/Git/FluxVault$ 
+tom@node:~/Git/FluxVault$ python3 ./vault_agent.py --ip 127.0.0.1  
+Oct-15-2022 07:50:46 File quotes.txt sent!  
+Oct-15-2022 07:50:46 File readme.txt sent!  
+127.0.0.1 Completed  
+tom@node:~/Git/FluxVault$   
 
 # Demo - Local Docker
 
@@ -172,46 +173,46 @@ Once the docker is running you can the run docker_demo.sh providing your local I
 
 ## Result Output - Node
 
-tom@node:~/Git/FluxVault$ docker run --name vault_demo --memory=1g --cpus=1.0 -p 39289:39289 -e VAULT_PORT=39289 -e VAULT_NAME=192.168.0.123 w2vy/vault_demo
-Version 0.5 10/12/2022 p1test Vault 192.168.0.123 Port 39289
-2022/10/15 12:07:09 [notice] 7#7: using the "epoll" event method
-2022/10/15 12:07:09 [notice] 7#7: nginx/1.23.1
-2022/10/15 12:07:09 [notice] 7#7: built by gcc 11.2.1 20220219 (Alpine 11.2.1_git20220219) 
-2022/10/15 12:07:09 [notice] 7#7: OS: Linux 5.15.0-48-generic
-2022/10/15 12:07:09 [notice] 7#7: getrlimit(RLIMIT_NOFILE): 1048576:1048576
-2022/10/15 12:07:09 [notice] 8#8: start worker processes
-2022/10/15 12:07:09 [notice] 8#8: start worker process 9
-2022/10/15 12:07:09 [notice] 8#8: start worker process 10
-2022/10/15 12:07:09 [notice] 8#8: start worker process 11
-2022/10/15 12:07:09 [notice] 8#8: start worker process 13
-Cloning into 'FluxVault'...
-branch 'python_class' set up to track 'origin/python_class'.
-Switched to a new branch 'python_class'
-Processing ./FluxVault
-  Preparing metadata (setup.py): started
-  Preparing metadata (setup.py): finished with status 'done'
-Requirement already satisfied: pycryptodome in /usr/lib/python3.10/site-packages (from fluxvault==1.0) (3.15.0)
-Using legacy 'setup.py install' for fluxvault, since package 'wheel' is not installed.
-Installing collected packages: fluxvault
-  Running setup.py install for fluxvault: started
-  Running setup.py install for fluxvault: finished with status 'done'
-Successfully installed fluxvault-1.0
-WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
-Creating  /tmp/node/
-node_server  192.168.0.123
-The NodeKeyClient server is running on port 39289
-Connected: ('192.168.0.123', 39736) on Thread-1 (process_request_thread)
-quotes.txt  received!
-readme.txt  received!
-Closed: ('192.168.0.123', 39736) on Thread-1 (process_request_thread)
+tom@node:~/Git/FluxVault$ docker run --name vault_demo --memory=1g --cpus=1.0 -p 39289:39289 -e VAULT_PORT=39289 -e VAULT_NAME=192.168.0.123 w2vy/vault_demo  
+Version 0.5 10/12/2022 p1test Vault 192.168.0.123 Port 39289  
+2022/10/15 12:07:09 [notice] 7#7: using the "epoll" event method  
+2022/10/15 12:07:09 [notice] 7#7: nginx/1.23.1  
+2022/10/15 12:07:09 [notice] 7#7: built by gcc 11.2.1 20220219 (Alpine 11.2.1_git20220219)  
+2022/10/15 12:07:09 [notice] 7#7: OS: Linux 5.15.0-48-generic  
+2022/10/15 12:07:09 [notice] 7#7: getrlimit(RLIMIT_NOFILE): 1048576:1048576  
+2022/10/15 12:07:09 [notice] 8#8: start worker processes  
+2022/10/15 12:07:09 [notice] 8#8: start worker process 9  
+2022/10/15 12:07:09 [notice] 8#8: start worker process 10  
+2022/10/15 12:07:09 [notice] 8#8: start worker process 11  
+2022/10/15 12:07:09 [notice] 8#8: start worker process 13  
+Cloning into 'FluxVault'...  
+branch 'python_class' set up to track 'origin/python_class'.  
+Switched to a new branch 'python_class'  
+Processing ./FluxVault  
+  Preparing metadata (setup.py): started  
+  Preparing metadata (setup.py): finished with status 'done'  
+Requirement already satisfied: pycryptodome in /usr/lib/python3.10/site-packages (from fluxvault==1.0) (3.15.0)  
+Using legacy 'setup.py install' for fluxvault, since package 'wheel' is not installed.  
+Installing collected packages: fluxvault  
+  Running setup.py install for fluxvault: started  
+  Running setup.py install for fluxvault: finished with status 'done'  
+Successfully installed fluxvault-1.0  
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv  
+Creating  /tmp/node/  
+node_server  192.168.0.123  
+The NodeKeyClient server is running on port 39289  
+Connected: ('192.168.0.123', 39736) on Thread-1 (process_request_thread)  
+quotes.txt  received!  
+readme.txt  received!  
+Closed: ('192.168.0.123', 39736) on Thread-1 (process_request_thread)  
 
 ## Result Output - Agent
 
-tom@node:~/Git/FluxVault$ ./docker_demo.sh 192.168.0.123
-File quotes.txt Matched!
-File readme.txt Matched!
-192.168.0.123 Completed
-tom@node:~/Git/FluxVault$ 
+tom@node:~/Git/FluxVault$ ./docker_demo.sh 192.168.0.123  
+File quotes.txt Matched!  
+File readme.txt Matched!  
+192.168.0.123 Completed  
+tom@node:~/Git/FluxVault$   
 
 
 # Demo - Flux Node
@@ -229,10 +230,10 @@ To deploy your own demo if the Vault you can visit https://jetpack2.app.runonflu
 3) Fill in 'App name' (Must be unique) and 'Description', Click 'Next Step'
 4) Fill in 'Component Name' (ie 'vault'), 'Docker Hub Repository for Component', must be 'w2vy/vault_demo:latest'
 5) The 'Add Environment Variables' section is where we can customize the dApp settings, typically you will see NAME=VALUE, in this form there is one field for the NAME and another for VALUE and then we click 'Add' for each one.
-   Set the following variables:
-   VAULT_NAME=IP-or-HOST
-   VAULT_PORT=YOUR-PORT2
-   VAULT_FILE_DIR=/usr/share/nginx/html/
+   Set the following variables:  
+   VAULT_NAME=IP-or-HOST  
+   VAULT_PORT=YOUR-PORT2  
+   VAULT_FILE_DIR=/usr/share/nginx/html/  
 
    Replace IP-or-HOST with your public IP Address (see http://whatismyip.com) or your DNS name, if you have one you will know it
    Replace YOUR-PORT with any port number between 31000 and 39999
@@ -242,10 +243,10 @@ To deploy your own demo if the Vault you can visit https://jetpack2.app.runonflu
 7) Click 'Next Step'
 8) 'Port Forwarding", 'Flux Public Port', Enter PORT1 and 'Docker Component Port' Enter 80 click 'Add'
 9) Also enter PORT2 and PORT2 and 'Add' and 'Next Step' (You can skip Custom Domain)
-10) 'How many instances will you be running?' 3 is the minimum.
-    'How many cores do you require?' It works slowly with 0.1 core, for the demo I used 0.5
-    'How much memory will your app need?' It defaults to 1000MB, I have used 500MB
-    'How much storage would you like?' The default of 1GB is fine
+10) 'How many instances will you be running?' 3 is the minimum.  
+    'How many cores do you require?' It works slowly with 0.1 core, for the demo I used 0.5  
+    'How much memory will your app need?' It defaults to 1000MB, I have used 500MB  
+    'How much storage would you like?' The default of 1GB is fine  
 11) Review the estimated cost - $0.14
 12) Next Step you can review all the settings and deploy and pay.
 13) The dApp takes an hour to deploy into the network
