@@ -490,7 +490,7 @@ class FluxAgent:
         if isinstance(sock, str):
             self.result = sock
             if self.verbose:
-                print('Could not create socket')
+                print('Could not connect to Node')
             self.add_log(self.result)
             return
 
